@@ -21,6 +21,10 @@ env:
    - VBS_MD5_HASH
 steps:
   - type: Command
+    name: "GitHub repo checksum"
+    command: |
+      mkdir zipFiles && zip -r github.zip TestBuildSource_GitHub && md5sum github.zip
+  - type: Command
     name: "Create directory for storing zip files"
     command: |
       mkdir ${zipFilesDirectoryPath}
